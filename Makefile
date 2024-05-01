@@ -8,7 +8,7 @@ publish: # для отладки публикации
 	poetry publish --dry-run
 
 package-install: # для установки пакета из операционной системы
-	python3 -m pip install --user dist/*.whl
+	python3 -m pip install dist/*.whl
 
 package-reinstall: # для переустановки пакета из операционной системы
-	pip install --user --force-reinstall dist/*.whl
+	pip install --force-reinstall dist/*.whl
