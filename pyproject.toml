@@ -12,7 +12,7 @@ packages = [
 python = "^3.10"
 
 [tool.poetry.scripts]
-gendiff = "gendiff.scripts.gendiff:main"
+gendiff = "gendiff.scripts.gendiff1:main"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.0.0"

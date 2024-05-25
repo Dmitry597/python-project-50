@@ -12,3 +12,9 @@ package-install: # для установки пакета из операцио�
 
 package-reinstall: # для переустановки пакета из операционной системы
 	pip install --force-reinstall dist/*.whl
+
+installation:
+	poetry install
+	poetry build
+	poetry publish --dry-run
+	pip install --force-reinstall dist/*.whl
