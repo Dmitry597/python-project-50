@@ -8,3 +8,5 @@ coverage.xml
 .pytest_cache/
 *cache*
 .idea/
+demo.cast
+gendiff/scripts/check.py

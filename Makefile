@@ -18,3 +18,6 @@ installation:
 	poetry build
 	poetry publish --dry-run
 	pip install --force-reinstall dist/*.whl
+
+asciinema:
+	asciinema rec
