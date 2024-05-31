@@ -5,7 +5,7 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d6627e15210619b37f2d/test_coverage)](https://codeclimate.com/github/Dmitry597/python-project-50/test_coverage)
 
-
+[![Python CI](https://github.com/Dmitry597/python-project-50/actions/workflows/pyci.yml/badge.svg)](https://github.com/Dmitry597/python-project-50/actions/workflows/pyci.yml)
 
 ### Demonstration:
 
