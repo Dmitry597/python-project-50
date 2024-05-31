@@ -8,7 +8,7 @@ def read(file_path):
 
 
 check_gendiff = read(
-    '/home/dimon7/python-project-50/tests/fixtures/check_gendiff.txt')
+    'tests/fixtures/check_gendiff.txt')
 
 
 def test_gen_diff():
