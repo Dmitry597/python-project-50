@@ -21,3 +21,6 @@ installation:
 
 asciinema:
 	asciinema rec
+
+lint:
+	poetry run flake8 gendiff

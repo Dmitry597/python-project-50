@@ -8,7 +8,7 @@ def main():
     print(
         generate_diff('gendiff/for_check_JSON_file/file1.json',
                       'gendiff/for_check_JSON_file/file2.json')
-        )
+    )
 
 
 def generate_diff_doc():
