@@ -7,11 +7,9 @@ def read(file_path):
     return result
 
 
-check_gendiff = read(
-    'tests/fixtures/check_gendiff.txt')
-
-
 def test_gen_diff():
+    check_gendiff = read(
+        'tests/fixtures/check_gendiff.txt')
     assert generate_diff('gendiff/for_check_JSON_file/file1.json',
                          'gendiff/for_check_JSON_file/file2.json') == \
            check_gendiff

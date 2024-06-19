@@ -4,11 +4,15 @@ import itertools
 
 
 def main():
-    generate_diff_doc()
+    args = generate_diff_doc()
     print(
-        generate_diff('gendiff/for_check_JSON_file/file1.json',
-                      'gendiff/for_check_JSON_file/file2.json')
+        generate_diff(args.first_file, args.second_file)
     )
+    # generate_diff_doc()
+    # print(
+    #     generate_diff('gendiff/for_check_JSON_file/file1.json',
+    #                   'gendiff/for_check_JSON_file/file2.json')
+    # )
 
 
 def generate_diff_doc():
@@ -19,7 +23,9 @@ def generate_diff_doc():
     parser.add_argument('first_file')
     parser.add_argument('second_file')
     parser.add_argument('-f', '--format', help='set format of output')
-    parser.parse_args()
+    args = parser.parse_args()
+
+    return args
 
 
 def convert_line(key, data, diff=' '):
