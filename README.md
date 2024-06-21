@@ -9,5 +9,8 @@
 
 ### Demonstration:
 
-#### gendiff:
+#### Comparing json files:
 <a href="https://asciinema.org/a/DSRbmwiuU3yJpDjd8Wk1LbkdP" target="_blank"><img src="https://asciinema.org/a/DSRbmwiuU3yJpDjd8Wk1LbkdP.svg" /></a>
+
+#### Comparing yml, yaml, and json files:
+<a href="https://asciinema.org/a/E0KkK5vf8WRIx3j37DBn52YCM" target="_blank"><img src="https://asciinema.org/a/E0KkK5vf8WRIx3j37DBn52YCM.svg" /></a>
