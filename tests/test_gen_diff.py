@@ -8,10 +8,10 @@ def read(file_path):
 
 
 # пути к файлам json and yml для проверки
-file1_json = 'tests/fixtures/file1.json'
-file2_json = 'tests/fixtures/file2.json'
-filepath1_yml = 'tests/fixtures/filepath1.yml'
-filepath2_yml = 'tests/fixtures/filepath2.yml'
+file1_json = 'file1.json'
+file2_json = 'file2.json'
+filepath1_yml = 'filepath1.yml'
+filepath2_yml = 'filepath2.yml'
 
 # чтение текстовых файлов для утверждения
 check_json_and_yml = read('tests/fixtures/check_json_and_yml.txt')
@@ -24,9 +24,10 @@ test_gen_diff_cases = [
 ]
 
 
-@pytest.mark.parametrize('file_path1, file_path2, result', test_gen_diff_cases)
-def test_gen_diff(file_path1, file_path2, result):
-    assert generate_diff(file_path1, file_path2) == result
+@pytest.mark.parametrize('file1, file2, result', test_gen_diff_cases)
+def test_gen_diff(file1, file2, result):
+    file_path = 'tests/fixtures/'
+    assert generate_diff(file_path + file1, file_path + file2) == result
 
 # команды для праверки
 # gendiff tests/fixtures/file1.json tests/fixtures/file2.json

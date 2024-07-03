@@ -83,21 +83,21 @@ def generate_diff(file_path1, file_path2):
             diff_ls_lines.append(сonverter_line(i, file1, '-'))  # значение первого файла # noqa: E501 <-- line too long
             diff_ls_lines.append(сonverter_line(i, file2, '+'))  # значение второго файла(измененное) # noqa: E501 <-- line too long
 
-    # 1 вариант
+    # # 1 вариант
     # for i in diff_file1:
     #     diff_ls_lines.append(сonverter_line(i, file1, '-'))
     # for i in diff_file2:
     #     diff_ls_lines.append(сonverter_line(i, file2, '+'))
 
-    # 2 вариант
-    diff_ls_lines += (сonverter_line(i, file1, '-') for i in diff_file1)  # noqa: E501 <-- line too long
-    diff_ls_lines += [сonverter_line(i, file2, '+') for i in diff_file2]  # noqa: E501 <-- line too long
+    # # 2 вариант
+    # diff_ls_lines += (сonverter_line(i, file1, '-') for i in diff_file1)  # noqa: E501 <-- line too long
+    # diff_ls_lines += (сonverter_line(i, file2, '+') for i in diff_file2)  # noqa: E501 <-- line too long
 
     # 3 вариант
-    # diff_ls_lines.extend(
-    #     map(lambda x: сonverter_line(x, file1, '-'), diff_file1))
-    # diff_ls_lines.extend(
-    #     map(lambda x: сonverter_line(x, file2, '+'), diff_file2))
+    diff_ls_lines.extend(
+        map(lambda x: сonverter_line(x, file1, '-'), diff_file1))
+    diff_ls_lines.extend(
+        map(lambda x: сonverter_line(x, file2, '+'), diff_file2))
 
     result_diff = itertools.chain("{",
                                   sorted(diff_ls_lines, key=lambda x: x[4]),
