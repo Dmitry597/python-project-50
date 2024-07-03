@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from gendiff.parsing import main
+from gendiff.gendiff_ import main
 
 
 if __name__ == '__main__':

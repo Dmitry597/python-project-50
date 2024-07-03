@@ -14,3 +14,6 @@
 
 #### Comparing yml, yaml, and json files:
 <a href="https://asciinema.org/a/E0KkK5vf8WRIx3j37DBn52YCM" target="_blank"><img src="https://asciinema.org/a/E0KkK5vf8WRIx3j37DBn52YCM.svg" /></a>
+
+#### Comparing yaml, yaml, and json files, format "stylish":
+<a href="https://asciinema.org/a/0OHrMkEuwQnKqKENbcMvGgAHe" target="_blank"><img src="https://asciinema.org/a/0OHrMkEuwQnKqKENbcMvGgAHe.svg" /></a>
