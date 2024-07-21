@@ -67,3 +67,8 @@ def test_gen_diff(file1, file2, formatter, result):
 # gendiff tests/fixtures/file_3.yml tests/fixtures/file4.json
 
 # gendiff -f stylish tests/fixtures/file_3.yml tests/fixtures/file4.json
+
+
+# gendiff -f plain tests/fixtures/file3.json tests/fixtures/file4.json
+# gendiff -f plain tests/fixtures/file_3.yml tests/fixtures/file_4.yml
+# gendiff -f plain tests/fixtures/file3.json tests/fixtures/file_4.yml
