@@ -38,8 +38,8 @@ def get_formatter(formatter: str) -> callable:
         #     return formatter_json
         case _:
             raise ValueError(
-                "The provided format is incorrect.."
-                "Only the formats STYLISH, PLAIN, and JSON are supported."
+                f'"<{formatter}> The provided format is incorrect..'
+                f'Only the formats STYLISH, PLAIN, and JSON are supported."'
             )
 
 
