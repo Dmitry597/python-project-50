@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from gendiff.formatters.stylish import chang_boolean
 
 

@@ -1,9 +1,16 @@
 [tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
-description = ""
+description = "The difference between the two data structures"
 authors = ["Dmitry Grigoriev <diman03051995@mail.ru>"]
 readme = "README.md"
+repository  = "https://github.com/Dmitry597/python-project-50"
+classifiers = [
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3.10",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
 packages = [
   { include = "gendiff" },
 ]
@@ -13,7 +20,7 @@ python = "^3.10"
 pyyaml = "^6.0.1"
 
 [tool.poetry.scripts]
-gendiff = "gendiff.scripts.gendiff1:main"
+gendiff = "gendiff.scripts.gendiff:main"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.0.0"

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 
 def get_structure(key: str, value_one: any, value_two: any,

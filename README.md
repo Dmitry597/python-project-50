@@ -7,6 +7,17 @@
 
 [![Python CI](https://github.com/Dmitry597/python-project-50/actions/workflows/pyci.yml/badge.svg)](https://github.com/Dmitry597/python-project-50/actions/workflows/pyci.yml)
 
+### Description:
+Difference Calculator is a program that determines the difference between two data structures.
+
+### Utility Features:
+- Support for different input formats: yaml, json
+- Generating a report in the form of plain text, stylish and json
+
+### Programming Language:
+- Python 3.10.
+
+
 ### Demonstration:
 
 #### Comparing json files:

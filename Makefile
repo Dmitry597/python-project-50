@@ -30,3 +30,23 @@ test:
 
 test-coverage:
 	poetry run pytest --cov=gendiff --cov-report xml tests/
+
+mytest:
+	poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json
+	poetry run gendiff tests/fixtures/file_1.yml tests/fixtures/file_2.yml
+	poetry run gendiff tests/fixtures/file1.json tests/fixtures/file_2.yml
+	poetry run gendiff tests/fixtures/file_1.yml tests/fixtures/file2.json
+	poetry run gendiff tests/fixtures/file3.json tests/fixtures/file4.json
+	poetry run gendiff tests/fixtures/file_3.yml tests/fixtures/file_4.yml
+	poetry run gendiff tests/fixtures/file3.json tests/fixtures/file_4.yml
+	poetry run gendiff tests/fixtures/file_3.yml tests/fixtures/file4.json
+	poetry run gendiff -f stylish tests/fixtures/file_3.yml tests/fixtures/file4.json
+	poetry run gendiff -f plain tests/fixtures/file1.json tests/fixtures/file2.json
+	poetry run gendiff -f plain tests/fixtures/file3.json tests/fixtures/file4.json
+	poetry run gendiff -f plain tests/fixtures/file_1.yml tests/fixtures/file_2.yml
+	poetry run gendiff -f plain tests/fixtures/file_3.yml tests/fixtures/file_4.yml
+	poetry run gendiff -f plain tests/fixtures/file3.json tests/fixtures/file_4.yml
+	poetry run gendiff -f json tests/fixtures/file1.json tests/fixtures/file2.json
+	poetry run gendiff -f json tests/fixtures/file_3.yml tests/fixtures/file_4.yml
+
+
