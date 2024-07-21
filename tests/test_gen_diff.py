@@ -18,20 +18,28 @@ file2_yml = 'file_2.yml'
 file3_yml = 'file_3.yml'
 file4_yml = 'file_4.yml'
 
+
 # чтение текстовых файлов для утверждения
 check_json_and_yml = read_file('tests/fixtures/check_json_and_yml.txt')
 check_json_and_yml2 = read_file('tests/fixtures/check_json_and_yml2.txt')
-
+check_format_plain = read_file('tests/fixtures/check_format_plain.txt')
 
 test_gen_diff_cases = [
     (file1_json, file2_json, 'stylish', check_json_and_yml),
     (file1_yml, file2_yml, 'stylish', check_json_and_yml),
     (file1_json, file2_yml, 'stylish', check_json_and_yml),
     (file1_yml, file2_json, 'stylish', check_json_and_yml),
+
     (file3_json, file4_json, 'stylish', check_json_and_yml2),
     (file3_yml, file4_yml, 'stylish', check_json_and_yml2),
     (file3_json, file4_yml, 'stylish', check_json_and_yml2),
     (file3_yml, file4_json, 'stylish', check_json_and_yml2),
+
+    (file3_json, file4_json, 'plain', check_format_plain),
+    (file3_yml, file4_yml, 'plain', check_format_plain),
+    (file3_json, file4_yml, 'plain', check_format_plain),
+    (file3_yml, file4_json, 'plain', check_format_plain),
+
 ]
 
 
