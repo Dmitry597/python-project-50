@@ -3,6 +3,7 @@ import argparse
 from gendiff.building_difference_tree import difference_tree
 from gendiff.formatters.plain import formatter_plain
 from gendiff.formatters.stylish import formatter_stylish
+from gendiff.formatters.json import formatter_json
 from gendiff.parsing_date import read_and_parse_file
 
 
@@ -34,8 +35,8 @@ def get_formatter(formatter: str) -> callable:
             return formatter_stylish
         case 'plain':
             return formatter_plain
-        # case 'json':
-        #     return formatter_json
+        case 'json':
+            return formatter_json
         case _:
             raise ValueError(
                 f'"<{formatter}> The provided format is incorrect..'

@@ -19,4 +19,7 @@
 <a href="https://asciinema.org/a/0OHrMkEuwQnKqKENbcMvGgAHe" target="_blank"><img src="https://asciinema.org/a/0OHrMkEuwQnKqKENbcMvGgAHe.svg" /></a>
 
 #### Comparing yaml, yaml, and json files, format "plain":
-<a href="https://asciinema.org/a/t4UMh83b8w1VBRTaE8anp7XvS" target="_blank"><img src="https://asciinema.org/a/t4UMh83b8w1VBRTaE8anp7XvS.svg" /></a>
+<a href="https://asciinema.org/a/bgWa7GJhv3FMRINe1ZV5s4GQW" target="_blank"><img src="https://asciinema.org/a/bgWa7GJhv3FMRINe1ZV5s4GQW.svg" /></a>
+
+#### Comparing yaml, yaml, and json files, format "json":
+<a href="https://asciinema.org/a/9f0DzrrPeaZ7hxh0xQtCMrk5o" target="_blank"><img src="https://asciinema.org/a/9f0DzrrPeaZ7hxh0xQtCMrk5o.svg" /></a>

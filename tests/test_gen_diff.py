@@ -1,10 +1,19 @@
 from gendiff import generate_diff
 import pytest
+import json
 
 
 def read_file(file_path: str) -> str:
     with open(file_path, 'r') as f:
         return f.read()
+
+
+def check_json_valid(string: str) -> str:
+    try:
+        json.loads(string)
+        return 'Valid json'
+    except json.JSONDecodeError:
+        return 'Invalid json'
 
 
 # пути к файлам json and yml для проверки
@@ -51,6 +60,13 @@ def test_gen_diff(file1, file2, formatter, result):
                          formatter) == result
 
 
+@pytest.mark.parametrize('file1, file2, formatter, result', [
+    (file1_json, file2_json, 'json', 'Valid json'),
+    (file3_json, file4_yml, 'json', 'Valid json'),
+])
+def test_gen_diff_json(file1, file2, formatter, result):
+    assert check_json_valid(generate_diff(file1, file2, formatter)) == result
+
 # команды для праверки
 # gendiff tests/fixtures/file1.json tests/fixtures/file2.json
 # gendiff tests/fixtures/file_1.yml tests/fixtures/file_2.yml
@@ -69,6 +85,10 @@ def test_gen_diff(file1, file2, formatter, result):
 # gendiff -f stylish tests/fixtures/file_3.yml tests/fixtures/file4.json
 
 
+# gendiff -f plain tests/fixtures/file1.json tests/fixtures/file2.json
 # gendiff -f plain tests/fixtures/file3.json tests/fixtures/file4.json
 # gendiff -f plain tests/fixtures/file_3.yml tests/fixtures/file_4.yml
 # gendiff -f plain tests/fixtures/file3.json tests/fixtures/file_4.yml
+
+# gendiff -f json tests/fixtures/file1.json tests/fixtures/file2.json
+# gendiff -f json tests/fixtures/file_3.yml tests/fixtures/file_4.yml
