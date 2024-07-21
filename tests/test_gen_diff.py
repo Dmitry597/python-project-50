@@ -17,6 +17,8 @@ def check_json_valid(string: str) -> str:
 
 
 # пути к файлам json and yml для проверки
+FILE_PATH = 'tests/fixtures/'
+
 file1_json = 'file1.json'
 file2_json = 'file2.json'
 file3_json = 'file3.json'
@@ -29,9 +31,9 @@ file4_yml = 'file_4.yml'
 
 
 # чтение текстовых файлов для утверждения
-check_json_and_yml = read_file('tests/fixtures/check_json_and_yml.txt')
-check_json_and_yml2 = read_file('tests/fixtures/check_json_and_yml2.txt')
-check_format_plain = read_file('tests/fixtures/check_format_plain.txt')
+check_json_and_yml = read_file(FILE_PATH + 'check_json_and_yml.txt')
+check_json_and_yml2 = read_file(FILE_PATH + 'check_json_and_yml2.txt')
+check_format_plain = read_file(FILE_PATH + 'check_format_plain.txt')
 
 test_gen_diff_cases = [
     (file1_json, file2_json, 'stylish', check_json_and_yml),
@@ -54,9 +56,8 @@ test_gen_diff_cases = [
 
 @pytest.mark.parametrize('file1, file2, formatter, result', test_gen_diff_cases)
 def test_gen_diff(file1, file2, formatter, result):
-    file_path = 'tests/fixtures/'
-    assert generate_diff(file_path + file1,
-                         file_path + file2,
+    assert generate_diff(FILE_PATH + file1,
+                         FILE_PATH + file2,
                          formatter) == result
 
 
@@ -65,7 +66,9 @@ def test_gen_diff(file1, file2, formatter, result):
     (file3_json, file4_yml, 'json', 'Valid json'),
 ])
 def test_gen_diff_json(file1, file2, formatter, result):
-    assert check_json_valid(generate_diff(file1, file2, formatter)) == result
+    assert check_json_valid(generate_diff(FILE_PATH + file1,
+                                          FILE_PATH + file2,
+                                          formatter)) == result
 
 # команды для праверки
 # gendiff tests/fixtures/file1.json tests/fixtures/file2.json
