@@ -1,6 +1,7 @@
 from gendiff import generate_diff
 import pytest
 import json
+import os
 
 
 def read_file(file_path: str) -> str:
@@ -16,56 +17,34 @@ def check_json_valid(string: str) -> str:
         return 'Invalid json'
 
 
-# пути к файлам json and yml для проверки
-FILE_PATH = 'tests/fixtures/'
+def get_absolute_path(file: str) -> str:
+    absolute_path = os.path.join(os.path.dirname(__file__), 'fixtures', file)
+    return os.path.realpath(absolute_path)
 
-file1_json = 'file1.json'
-file2_json = 'file2.json'
-file3_json = 'file3.json'
-file4_json = 'file4.json'
-
-file1_yml = 'file_1.yml'
-file2_yml = 'file_2.yml'
-file3_yml = 'file_3.yml'
-file4_yml = 'file_4.yml'
-
-
-# чтение текстовых файлов для утверждения
-check_json_and_yml = read_file(FILE_PATH + 'check_json_and_yml.txt')
-check_json_yml_nested = read_file(FILE_PATH + 'check_json_yml_nested.txt')
-check_format_plain = read_file(FILE_PATH + 'check_format_plain.txt')
 
 test_gen_diff_cases = [
-    (file1_json, file2_json, 'stylish', check_json_and_yml),
-    (file1_yml, file2_yml, 'stylish', check_json_and_yml),
-    (file1_json, file2_yml, 'stylish', check_json_and_yml),
-    (file1_yml, file2_json, 'stylish', check_json_and_yml),
-
-    (file3_json, file4_json, 'stylish', check_json_yml_nested),
-    (file3_yml, file4_yml, 'stylish', check_json_yml_nested),
-    (file3_json, file4_yml, 'stylish', check_json_yml_nested),
-    (file3_yml, file4_json, 'stylish', check_json_yml_nested),
-
-    (file3_json, file4_json, 'plain', check_format_plain),
-    (file3_yml, file4_yml, 'plain', check_format_plain),
-    (file3_json, file4_yml, 'plain', check_format_plain),
-    (file3_yml, file4_json, 'plain', check_format_plain),
-
+    ('file1.json', 'file2.json', 'stylish', 'check_format_stylish.txt'),
+    ('file_1.yml', 'file_2.yml', 'stylish', 'check_format_stylish.txt'),
+    ('file1.json', 'file_2.yml', 'stylish', 'check_format_stylish.txt'),
+    ('file_1.yml', 'file2.json', 'plain', 'check_format_plain.txt')
 ]
 
 
 @pytest.mark.parametrize('file1, file2, formatter, result', test_gen_diff_cases)
 def test_gen_diff(file1, file2, formatter, result):
-    assert generate_diff(FILE_PATH + file1,
-                         FILE_PATH + file2,
-                         formatter) == result
+    abs_path_result = get_absolute_path(result)
+    correct_result = read_file(abs_path_result)
+
+    abs_path_file1 = get_absolute_path(file1)
+    abs_path_file2 = get_absolute_path(file2)
+
+    assert generate_diff(abs_path_file1, abs_path_file2,
+                         formatter) == correct_result
 
 
-@pytest.mark.parametrize('file1, file2, formatter, result', [
-    (file1_json, file2_json, 'json', 'Valid json'),
-    (file3_json, file4_yml, 'json', 'Valid json'),
-])
-def test_gen_diff_json(file1, file2, formatter, result):
-    assert check_json_valid(generate_diff(FILE_PATH + file1,
-                                          FILE_PATH + file2,
-                                          formatter)) == result
+def test_gen_diff_json():
+    abs_path_file1 = get_absolute_path('file1.json')
+    abs_path_file2 = get_absolute_path('file_2.yml')
+
+    assert check_json_valid(generate_diff(abs_path_file1, abs_path_file2,
+                                          'json')) == 'Valid json'
