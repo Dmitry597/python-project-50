@@ -1,14 +1,6 @@
 #!/usr/bin/env python3
 
 import argparse
-from gendiff.gendiff_ import generate_diff
-
-
-def main():
-    args = get_args()
-    print(
-        generate_diff(args.first_file, args.second_file, args.format)
-    )
 
 
 def get_args() -> argparse.Namespace:
@@ -23,7 +15,3 @@ def get_args() -> argparse.Namespace:
     args = parser.parse_args()
 
     return args
-
-
-if __name__ == '__main__':
-    main()
